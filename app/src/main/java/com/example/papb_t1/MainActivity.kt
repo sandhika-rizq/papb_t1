@@ -30,8 +30,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GreetingApp() {
-    var studentName by remember { mutableStateOf("") }
-    var greetingText by remember { mutableStateOf("Press the button!") }
+    var greetingText by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -40,22 +39,18 @@ fun GreetingApp() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        OutlinedTextField(
-            value = studentName,
-            onValueChange = { studentName = it },
-            label = { Text("Enter your name") },
-            modifier = Modifier.fillMaxWidth()
+        Text(
+            text = greetingText,
+            style = MaterialTheme.typography.headlineMedium
         )
-        Spacer(Modifier.height(16.dp))
+
+        Spacer(Modifier.height(16.dp)) // Memberi jarak
 
         Button(onClick = {
-            greetingText = "Halo $studentName!"
+            greetingText = "Halo, Sandhika Rizqi Ramadhan "
         }) {
-            Text("Say Hello")
+            Text("Tampilkan Nama")
         }
-        Spacer(Modifier.height(16.dp))
-
-        Text(text = greetingText, style = MaterialTheme.typography.headlineMedium)
     }
 }
 
